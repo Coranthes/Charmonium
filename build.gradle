@@ -54,8 +54,8 @@ dependencies {
     compile fg.deobf("vazkii.autoreglib:AutoRegLib:${arl_version}")
     compile fg.deobf("vazkii.quark:Quark:${quark_version}")
     compile fg.deobf("curse.maven:${quark_oddities}")
-    compile fg.deobf("curse.maven:${environs}")
-    compile fg.deobf("curse.maven:${soundcontrol}")
+//    compile fg.deobf("curse.maven:${environs}")
+//    compile fg.deobf("curse.maven:${soundcontrol}")
 }
 
 repositories {
