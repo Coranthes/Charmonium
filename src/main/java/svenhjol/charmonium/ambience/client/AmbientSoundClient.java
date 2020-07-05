@@ -53,7 +53,6 @@ public class AmbientSoundClient {
                     new EndAmbientSounds(player, soundHandler),
                     new HighAmbientSounds(player, soundHandler),
                     new OceanAmbientSounds(player, soundHandler),
-                    new NetherAmbientSounds(player, soundHandler),
 
                     new DesertAmbientSounds.Day(player, soundHandler),
                     new DesertAmbientSounds.Night(player, soundHandler),

@@ -202,23 +202,6 @@
       {"name": "charmonium:ambience/mineshaft/woodcreak5"}
     ]
   },
-  "ambience.nether.long": {
-    "sounds": [
-      {"name": "charmonium:ambience/dimensions/nether"}
-    ]
-  },
-  "ambience.nether.short": {
-    "sounds": [
-      {"name": "charmonium:ambience/dimensions/dimensionfx1"},
-      {"name": "charmonium:ambience/dimensions/dimensionfx2"},
-      {"name": "charmonium:ambience/dimensions/dimensionfx3"},
-      {"name": "charmonium:ambience/dimensions/dimensionfx4"},
-      {"name": "charmonium:ambience/dimensions/dimensionfx5"},
-      {"name": "charmonium:ambience/dimensions/dimensionfx6"},
-      {"name": "charmonium:ambience/dimensions/dimensionfx7"},
-      {"name": "charmonium:ambience/dimensions/dimensionfx8"}
-    ]
-  },
   "ambience.ocean.long": {
     "sounds": [
       {"name": "charmonium:ambience/ocean/sea1"},
@@ -288,9 +271,22 @@
       {"name": "charmonium:ambience/wind/wind3"}
     ]
   },
+  "ambience.end.short": {
+    "sounds": [
+      {"name": "charmonium:ambience/dimensions/dimensionfx1"},
+      {"name": "charmonium:ambience/dimensions/dimensionfx2"},
+      {"name": "charmonium:ambience/dimensions/dimensionfx3"},
+      {"name": "charmonium:ambience/dimensions/dimensionfx4"},
+      {"name": "charmonium:ambience/dimensions/dimensionfx5"},
+      {"name": "charmonium:ambience/dimensions/dimensionfx6"},
+      {"name": "charmonium:ambience/dimensions/dimensionfx7"},
+      {"name": "charmonium:ambience/dimensions/dimensionfx8"}
+    ]
+  },
   "ambience.end.long": {
     "sounds": [
-      {"name": "charmonium:ambience/dimensions/end"}
+      {"name": "charmonium:ambience/dimensions/end"},
+      {"name": "charmonium:ambience/dimensions/end2"}
     ]
   },
   "ambience.village.short": {

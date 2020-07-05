@@ -21,7 +21,7 @@ public class EndAmbientSounds extends BaseAmbientSounds {
 
     @Override
     public int getShortSoundDelay() {
-        return world.rand.nextInt(200) + 200;
+        return world.rand.nextInt(300) + 300;
     }
 
     @Nullable
@@ -33,6 +33,16 @@ public class EndAmbientSounds extends BaseAmbientSounds {
     @Nullable
     @Override
     public SoundEvent getShortSound() {
-        return null;
+        return CharmoniumSounds.AMBIENCE_END_SHORT;
+    }
+
+    @Override
+    public float getShortSoundVolume() {
+        return 0.45F;
+    }
+
+    @Override
+    public float getLongSoundVolume() {
+        return 0.35F;
     }
 }
