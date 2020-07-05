@@ -2,13 +2,13 @@ package svenhjol.charmonium.ambience.client.iface;
 
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
-import svenhjol.charmonium.ambience.client.iface.IAmbientSounds;
+import svenhjol.meson.helper.PlayerHelper;
 
 public interface IBiomeAmbience extends IAmbientSounds {
     @Override
     default boolean isValid() {
         if (getWorld() == null) return false;
-        BlockPos pos = getPlayer().getPosition();
+        BlockPos pos = PlayerHelper.getPosition(getPlayer());
         Biome biome = getWorld().getBiome(pos);
         //noinspection ConstantConditions
         if (biome == null) return false;
