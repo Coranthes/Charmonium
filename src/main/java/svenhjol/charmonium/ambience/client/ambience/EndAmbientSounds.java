@@ -2,10 +2,10 @@ package svenhjol.charmonium.ambience.client.ambience;
 
 import net.minecraft.client.audio.SoundHandler;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.world.dimension.DimensionType;
-import svenhjol.charmonium.ambience.client.ambience.BaseAmbientSounds;
 import svenhjol.charmonium.base.CharmoniumSounds;
+import svenhjol.meson.helper.WorldHelper;
 
 import javax.annotation.Nullable;
 
@@ -16,7 +16,7 @@ public class EndAmbientSounds extends BaseAmbientSounds {
 
     public boolean isValid() {
         if (world == null) return false;
-        return world.getDimension().getType() == DimensionType.THE_END;
+        return WorldHelper.isDimension(player.world, new ResourceLocation("the_end"));
     }
 
     @Override

@@ -2,10 +2,11 @@ package svenhjol.charmonium.ambience.client.ambience;
 
 import net.minecraft.client.audio.SoundHandler;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.world.dimension.DimensionType;
-import svenhjol.charmonium.ambience.client.ambience.BaseAmbientSounds;
 import svenhjol.charmonium.base.CharmoniumSounds;
+import svenhjol.meson.helper.PlayerHelper;
+import svenhjol.meson.helper.WorldHelper;
 
 import javax.annotation.Nullable;
 
@@ -16,8 +17,8 @@ public class HighAmbientSounds extends BaseAmbientSounds {
 
     @Override
     public boolean isValid() {
-        return world.dimension.getType() == DimensionType.OVERWORLD
-            && player.getPosition().getY() > 150
+        return WorldHelper.isDimension(world, new ResourceLocation("overworld"))
+            && PlayerHelper.getPosition(player).getY() > 150
             && !player.canSwim();
     }
 

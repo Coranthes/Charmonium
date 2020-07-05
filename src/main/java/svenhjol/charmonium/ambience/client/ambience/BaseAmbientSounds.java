@@ -12,6 +12,7 @@ import svenhjol.charmonium.ambience.client.LongSound;
 import svenhjol.charmonium.ambience.client.ShortSound;
 import svenhjol.charmonium.ambience.client.iface.IAmbientSounds;
 import svenhjol.charmonium.ambience.module.Sounds;
+import svenhjol.meson.helper.PlayerHelper;
 
 public abstract class BaseAmbientSounds implements IAmbientSounds {
     protected int shortTicks = 0;
@@ -57,7 +58,7 @@ public abstract class BaseAmbientSounds implements IAmbientSounds {
         int blocks = 16;
         int start = 1;
 
-        BlockPos playerPos = player.getPosition();
+        BlockPos playerPos = PlayerHelper.getPosition(player);
 
         for (int i = start; i < start + blocks; i++) {
             BlockPos check = new BlockPos(playerPos.getX(), playerPos.getY() + i, playerPos.getZ());
@@ -68,7 +69,7 @@ public abstract class BaseAmbientSounds implements IAmbientSounds {
 
             if (world.isAirBlock(check)) continue;
             if (state.getMaterial() == Material.GLASS
-                || block instanceof LogBlock
+                || (block instanceof RotatedPillarBlock && state.getMaterial() == Material.WOOD) // no more LogBlock, wtf?
                 || block instanceof MushroomBlock
                 || block instanceof HugeMushroomBlock
             ) continue;
@@ -76,7 +77,7 @@ public abstract class BaseAmbientSounds implements IAmbientSounds {
             if (state.isSolid()) return false;
         }
 
-        return player.getPosition().getY() >= 48;
+        return PlayerHelper.getPosition(player).getY() >= 48;
     }
 
     protected void setShortSound() {

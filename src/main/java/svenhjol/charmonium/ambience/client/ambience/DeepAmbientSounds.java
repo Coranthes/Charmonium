@@ -2,12 +2,12 @@ package svenhjol.charmonium.ambience.client.ambience;
 
 import net.minecraft.client.audio.SoundHandler;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.dimension.DimensionType;
-import svenhjol.meson.helper.WorldHelper;
-import svenhjol.charmonium.ambience.client.ambience.BaseAmbientSounds;
 import svenhjol.charmonium.base.CharmoniumSounds;
+import svenhjol.meson.helper.PlayerHelper;
+import svenhjol.meson.helper.WorldHelper;
 
 import javax.annotation.Nullable;
 
@@ -18,8 +18,8 @@ public class DeepAmbientSounds extends BaseAmbientSounds {
 
     @Override
     public boolean isValid() {
-        if (world == null || world.getDimension().getType() != DimensionType.OVERWORLD) return false;
-        BlockPos pos = player.getPosition();
+        if (world == null || !WorldHelper.isDimension(world, new ResourceLocation("overworld"))) return false;
+        BlockPos pos = PlayerHelper.getPosition(player);
         int light = world.getLight(pos);
         return !WorldHelper.canSeeSky(world, pos) && pos.getY() <= 32 && light < 10;
     }

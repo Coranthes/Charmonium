@@ -3,12 +3,13 @@ package svenhjol.charmonium.ambience.client.ambience;
 import net.minecraft.client.audio.SoundHandler;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.dimension.DimensionType;
 import svenhjol.charm.Charm;
 import svenhjol.charmonium.Charmonium;
 import svenhjol.charmonium.base.CharmoniumSounds;
+import svenhjol.meson.helper.PlayerHelper;
 import svenhjol.meson.helper.WorldHelper;
 
 import javax.annotation.Nullable;
@@ -22,10 +23,10 @@ public class CaveAmbientSounds extends BaseAmbientSounds {
     }
 
     public static boolean isValidCave(ClientWorld world, PlayerEntity player) {
-        if (world == null || world.getDimension().getType() != DimensionType.OVERWORLD) return false;
+        if (world == null || !WorldHelper.isDimension(world, new ResourceLocation("overworld"))) return false;
         if (player.canSwim()) return false;
 
-        BlockPos pos = player.getPosition();
+        BlockPos pos = PlayerHelper.getPosition(player);
         int light = world.getLight(pos);
 
         if (!WorldHelper.canSeeSky(world, pos)
@@ -96,7 +97,7 @@ public class CaveAmbientSounds extends BaseAmbientSounds {
 
         @Override
         protected void setShortSound() {
-            BlockPos pos = player.getPosition();
+            BlockPos pos = PlayerHelper.getPosition(player);
 
             int range = 16;
             Stream<BlockPos> inRange = BlockPos.getAllInBox(pos.add(-range, -range, -range), pos.add(range, range, range));
